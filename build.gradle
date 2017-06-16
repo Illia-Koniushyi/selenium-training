@@ -1,0 +1,17 @@
+group 'selenium.training.org'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.4.0'
+    testCompile 'io.github.bonigarcia:webdrivermanager:1.6.2'
+    testCompile 'ch.racic.selenium:selenium-driver-helper-internetexplorer:2.53.1'
+}
