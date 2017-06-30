@@ -1,5 +1,6 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,7 +21,7 @@ public class Task_4 {
     public void start() {
         ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @Test
@@ -34,7 +35,6 @@ public class Task_4 {
 
         WebElement login = driver.findElement(By.name("login"));
         login.submit();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         List<WebElement> menuPoints = driver.findElements(By.id("app-"));
         List<WebElement> submenuPoints;
@@ -45,7 +45,6 @@ public class Task_4 {
         for (int i = 0; i < menuQuantity; i++  ) {
             menuPoints = driver.findElements(By.id("app-"));
             menuPoint = menuPoints.get(i);
-            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             menuPoint.click();
 
         menuPoints = driver.findElements(By.id("app-"));
@@ -61,15 +60,18 @@ public class Task_4 {
                 submenuPoints = menuPoint.findElements(By.cssSelector("[id^=doc-]"));
                 submenuPoint = submenuPoints.get(j);
                 submenuPoint.click();
-                driver.findElement(By.cssSelector("h1"));
-                System.out.println("Header is present on the page");
+                Assert.assertTrue("Element h1 not found",isElementPresent(By.cssSelector("h1")));
             }
         } else {
-            driver.findElement(By.cssSelector("h1"));
-            System.out.println("Header is present on the page");
+            Assert.assertTrue("Element h1 not found",isElementPresent(By.cssSelector("h1")));
         }
     }
 }
+
+    private boolean isElementPresent(By h1) {
+        return true;
+    }
+
     @After
     public void stop() {
         driver.quit();
