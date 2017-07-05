@@ -3,9 +3,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -83,6 +81,7 @@ public class Task6_cr {
         driver.findElement(By.name("dim_x")).sendKeys("10");
         driver.findElement(By.name("dim_y")).sendKeys("10");
         driver.findElement(By.name("dim_z")).sendKeys("10");
+        driver.findElement(By.name("new_images[]")).sendKeys("/home/administrator/IdeaProjects/selenium-training/src/test/resources/Huarhe.png");
 
         driver.findElement(By.linkText("Information")).click();
         new Select(driver.findElement(By.name("manufacturer_id"))).selectByVisibleText("ACME Corp.");
@@ -99,7 +98,6 @@ public class Task6_cr {
         driver.findElement(By.name("save")).click();
 
         Assert.assertTrue(driver.findElement(By.linkText(ProdName)).isDisplayed());
-
     }
 
     @After
