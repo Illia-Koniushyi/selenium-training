@@ -7,6 +7,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -81,7 +83,11 @@ public class Task6_cr {
         driver.findElement(By.name("dim_x")).sendKeys("10");
         driver.findElement(By.name("dim_y")).sendKeys("10");
         driver.findElement(By.name("dim_z")).sendKeys("10");
-        driver.findElement(By.name("new_images[]")).sendKeys("/home/administrator/IdeaProjects/selenium-training/src/test/resources/Huarhe.png");
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("Huarhe.png").getFile());
+        driver.findElement(By.name("new_images[]")).sendKeys(file.getAbsolutePath());
+//        driver.findElement(By.name("new_images[]")).sendKeys("/home/administrator/IdeaProjects/selenium-training/src/test/resources/Huarhe.png");
 
         driver.findElement(By.linkText("Information")).click();
         new Select(driver.findElement(By.name("manufacturer_id"))).selectByVisibleText("ACME Corp.");
