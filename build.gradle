@@ -14,4 +14,14 @@ dependencies {
     testCompile 'org.seleniumhq.selenium:selenium-java:3.4.0'
     testCompile 'io.github.bonigarcia:webdrivermanager:1.6.2'
     testCompile 'ch.racic.selenium:selenium-driver-helper-internetexplorer:2.53.1'
+    testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.12.0'
+
+    compile ('net.lightbody.bmp:browsermob-core:2.1.4')
+            {
+                exclude module: 'selenium'
+            }
+}
+
+test {
+    //maxParallelForks = 10
 }
