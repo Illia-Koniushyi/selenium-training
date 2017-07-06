@@ -42,7 +42,8 @@ public class Task8_cr {
         password.sendKeys("admin");
         WebElement login = driver.findElement(By.name("login"));
         login.submit();
-        driver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
+
+       /* driver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
         driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
         countryRows = driver.findElements(By.cssSelector("[name=countries_form] .row"));
         countryQuantity=countryRows.size();
@@ -50,6 +51,8 @@ public class Task8_cr {
         countryRow.findElement(By.cssSelector("a")).click();
         listLinks = driver.findElements(By.cssSelector("form .fa-external-link"));
         linksQuantity = listLinks.size();
+
+        */
     }
 
     @After
