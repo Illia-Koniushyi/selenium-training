@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 public class Task_4 {
     private WebDriver driver;
     int menuQuantity, submenuQuantity;
-    private static final int defaultTimeOut = 3;
 
     @Before
     public void start() {
@@ -69,11 +68,9 @@ public class Task_4 {
     }
 }
 
-    private boolean isElementPresent(By h1) {
-        driver.manage().timeouts().implicitlyWait(0,TimeUnit.SECONDS);
-        boolean result = driver.findElements(By.cssSelector("h1")).size() > 0;
-        driver.manage().timeouts().implicitlyWait(defaultTimeOut, TimeUnit.SECONDS);
-        return result;
+    private boolean isElementPresent(By element) {
+
+        return driver.findElements(element).size() > 0;
     }
 
     @After
