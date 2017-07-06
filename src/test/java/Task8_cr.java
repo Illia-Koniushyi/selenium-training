@@ -17,10 +17,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class Task8_cr {
     private WebDriver driver;
-    int countryQuantity, linksQuantity;
-    int randomIndex;
-    WebElement countryRow;
-    List<WebElement> countryRows, listLinks;
+    int  linksQuantity;
+    List<WebElement>  listLinks;
     String originalWindow, newWindow;
     Set<String> existingWindows;
 
@@ -43,16 +41,13 @@ public class Task8_cr {
         WebElement login = driver.findElement(By.name("login"));
         login.submit();
 
-       /* driver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
         driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
-        countryRows = driver.findElements(By.cssSelector("[name=countries_form] .row"));
-        countryQuantity=countryRows.size();
-        countryRow=countryRows.get(randomIndex);
-        countryRow.findElement(By.cssSelector("a")).click();
+        driver.findElement(By.name("Add New Country")).click();
+
         listLinks = driver.findElements(By.cssSelector("form .fa-external-link"));
         linksQuantity = listLinks.size();
 
-        */
+
     }
 
     @After
