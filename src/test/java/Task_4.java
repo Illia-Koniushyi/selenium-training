@@ -63,13 +63,13 @@ public class Task_4 {
                 Assert.assertTrue("Element h1 not found",isElementPresent(By.cssSelector("h1")));
             }
         } else {
-            Assert.assertTrue("Element h1 not found",isElementPresent(By.cssSelector("h1")));
+            Assert.assertTrue("Element h1 not found", isElementPresent(By.cssSelector("h1")));
         }
     }
 }
 
     private boolean isElementPresent(By h1) {
-        return true;
+        return driver.findElement(By.cssSelector("h1")).isDisplayed();
     }
 
     @After
