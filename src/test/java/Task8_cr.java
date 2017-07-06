@@ -66,7 +66,6 @@ public class Task8_cr {
             driver.switchTo().window(originalWindow);
         }
 
-
     }
 
     @After
